@@ -11,6 +11,10 @@ const Navbar = () => {
     setActive('navBar activeNavbar')
   }
 
+  const removeNavbar = () => {
+    setActive('navBar')
+  }
+
   return (
     <section className="navBarSection">
       <header className="header flex">
@@ -52,7 +56,7 @@ const Navbar = () => {
               <a href="#">BOOK NOW</a>
             </button>
           </ul>
-          <div className="closeNavbar">
+          <div onClick={removeNavbar} className="closeNavbar">
             <AiFillCloseCircle className="icon"/>
           </div>
         </div>
