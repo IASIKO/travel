@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./home.css";
 import video from "../../Assets/video.mp4";
 import { GrLocation } from "react-icons/gr";
@@ -15,10 +15,16 @@ import 'aos/dist/aos.css'
 
 const Home = () => {
 
+  const [maxPrice, setMaxPrice] = useState(5000);
+
   useEffect(()=>{
     Aos.init({duration: 2000})
   },[])
 
+
+  const handleRangeChange = (event) => {
+    setMaxPrice(parseInt(event.target.value));
+  };
 
 
 
@@ -52,10 +58,10 @@ const Home = () => {
           <div className="priceInput">
             <div className="label_total flex">
               <label htmlFor="price">Max price:</label>
-              <h3 className="total">$5000</h3>
+              <h3 className="total">{maxPrice}</h3>
             </div>
             <div className="input flex">
-              <input type="range" max="5000" min="1000" />
+              <input type="range" max="5000" min="1000" value={maxPrice} onChange={handleRangeChange}/>
             </div>
           </div>
 
